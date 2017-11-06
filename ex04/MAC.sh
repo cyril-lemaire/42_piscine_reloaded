@@ -1,0 +1,1 @@
+ifconfig | grep -Eio "[a-f0-9]{2}(:[a-f0-9]{2}){5}"
