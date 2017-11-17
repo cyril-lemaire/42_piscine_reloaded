@@ -6,11 +6,16 @@
 /*   By: clemaire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 09:56:00 by clemaire          #+#    #+#             */
-/*   Updated: 2017/11/10 10:01:39 by clemaire         ###   ########.fr       */
+/*   Updated: 2017/11/13 15:56:23 by clemaire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
 typedef struct {
 	int		x;
 	int		y;
-} t_point;
+}			t_point;
+
+#endif

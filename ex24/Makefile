@@ -6,7 +6,7 @@
 #    By: clemaire <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 10:23:18 by clemaire          #+#    #+#              #
-#    Updated: 2017/11/13 11:37:11 by clemaire         ###   ########.fr        #
+#    Updated: 2017/11/17 15:24:27 by clemaire         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,10 +24,12 @@ OBJ = "ft_putchar.o" \
     "ft_strlen.o" \
     "ft_swap.o"
 
+INCLUDES_DIR = includes/
+
 all: ${NAME}
 
 ${NAME}:
-	gcc -Wall -Wextra -Werror -c ${SRC}
+	gcc -I${INCLUDES_DIR} -Wall -Wextra -Werror -c ${SRC}
 	ar rcs ${NAME} ${OBJ}
 
 clean:

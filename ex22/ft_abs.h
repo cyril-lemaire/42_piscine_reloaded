@@ -6,11 +6,11 @@
 /*   By: clemaire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 14:19:51 by clemaire          #+#    #+#             */
-/*   Updated: 2017/11/13 14:26:35 by clemaire         ###   ########.fr       */
+/*   Updated: 2017/11/13 16:00:23 by clemaire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
-#define FT_ABS_H
-#define ABS(x) ((x) < 0 ? (x) : -(x))
+# define FT_ABS_H
+# define ABS(x) ((x) < 0 ? (x) : -(x))
 #endif
