@@ -6,14 +6,13 @@
 /*   By: clemaire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 10:25:26 by clemaire          #+#    #+#             */
-/*   Updated: 2017/11/13 15:30:12 by clemaire         ###   ########.fr       */
+/*   Updated: 2017/11/17 15:43:30 by clemaire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_putchar(int c);
 
-int		ft_is_negative(int n)
+void	ft_is_negative(int n)
 {
 	ft_putchar(n < 0 ? 'N' : 'P');
-	ft_putchar('\n');
 }
