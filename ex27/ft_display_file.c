@@ -1,30 +1,34 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: clemaire <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 10:58:38 by clemaire          #+#    #+#             */
-/*   Updated: 2017/11/17 14:44:11 by clemaire         ###   ########.fr       */
-/*                                                                            */
+/*																			  */
+/*														  :::	   ::::::::	  */
+/*	 ft_display_file.c									:+:		 :+:	:+:	  */
+/*													  +:+ +:+		  +:+	  */
+/*	 By: clemaire <marvin@42.fr>					+#+	 +:+	   +#+		  */
+/*												  +#+#+#+#+#+	+#+			  */
+/*	 Created: 2017/11/10 10:58:38 by clemaire		   #+#	  #+#			  */
+/*	 Updated: 2017/11/17 14:44:11 by clemaire		  ###	########.fr		  */
+/*																			  */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
 
-void		ft_print_file(int fd)
+void	ft_print_file(int fd)
 {
-	char	read_char;
+	unsigned int	read_bytes;
+	char			buffer[256];
 
-	while (read(fd, &read_char, 1) > 0)
-		write(1, &read_char, 1);
+	while ((read_bytes = read(fd, buffer, sizeof(buffer) - 1)) > 0)
+	{
+		buffer[read_bytes] = '\0';
+		write(1, buffer, read_bytes);
+	}
 }
 
-int			main(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
 	int		fd;
-
+	
 	if (argc == 1)
 	{
 		write(2, "File name missing.\n", sizeof("File name missing.\n"));
