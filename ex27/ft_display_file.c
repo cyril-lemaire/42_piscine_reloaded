@@ -6,42 +6,54 @@
 /*   By: clemaire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 10:49:43 by clemaire          #+#    #+#             */
-/*   Updated: 2017/11/24 10:50:20 by clemaire         ###   ########.fr       */
+/*   Updated: 2017/11/24 17:23:23 by clemaire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
 
-void	ft_print_file(int fd)
+int	ft_display_file(int fd_file)
 {
-	unsigned int	read_bytes;
-	char			buffer[256];
+	int		read_bytes;
+	char	buff[4096];
 
-	while ((read_bytes = read(fd, buffer, sizeof(buffer) - 1)) > 0)
+	while ((read_bytes = read(fd_file, buff, 4096)))
 	{
-		buffer[read_bytes] = '\0';
-		write(1, buffer, read_bytes);
+		if (read_bytes == -1)
+		{
+			write(2, "Read() on file failed.\n", 23);
+			return (1);
+		}
+		write(1, buff, read_bytes);
 	}
+	return (0);
 }
 
-int		main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	int		fd;
+	int	fd;
+	int	read_return;
 
-	if (argc == 1)
+	if (argc != 2)
 	{
-		write(2, "File name missing.\n", sizeof("File name missing.\n"));
+		if (argc < 2)
+			write(2, "File name missing.\n", 19);
+		else if (argc > 2)
+			write(2, "Too many arguments.\n", 20);
 		return (1);
-	}
-	else if (argc > 2)
-	{
-		write(2, "Too many arguments.\n", sizeof("Too many arguments.\n"));
-		return (2);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		return (3);
-	ft_print_file(fd);
-	return (close(fd) != 0 ? 4 : 0);
+	{
+		write(2, "Open() on file failed.\n", 23);
+		return (1);
+	}
+	read_return = ft_display_file(fd);
+	if (close(fd) == -1)
+	{
+		write(2, "Close() on file failed.\n", 24);
+		return (1);
+	}
+	return (read_return);
 }
