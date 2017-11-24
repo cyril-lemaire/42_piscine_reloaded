@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			  */
-/*														  :::	   ::::::::	  */
-/*	 ft_display_file.c									:+:		 :+:	:+:	  */
-/*													  +:+ +:+		  +:+	  */
-/*	 By: clemaire <marvin@42.fr>					+#+	 +:+	   +#+		  */
-/*												  +#+#+#+#+#+	+#+			  */
-/*	 Created: 2017/11/10 10:58:38 by clemaire		   #+#	  #+#			  */
-/*	 Updated: 2017/11/17 14:44:11 by clemaire		  ###	########.fr		  */
-/*																			  */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clemaire <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 10:49:43 by clemaire          #+#    #+#             */
+/*   Updated: 2017/11/24 10:50:20 by clemaire         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
@@ -28,7 +28,7 @@ void	ft_print_file(int fd)
 int		main(int argc, char *argv[])
 {
 	int		fd;
-	
+
 	if (argc == 1)
 	{
 		write(2, "File name missing.\n", sizeof("File name missing.\n"));
